@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "154426317080",
+    "project_id": "rexcommerce-1c288",
+    "storage_bucket": "rexcommerce-1c288.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154426317080:android:7f6150495db97246d4266d",
+        "android_client_info": {
+          "package_name": "com.example.rex_commerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUJSpNIoEhcZwlp-2zvUdPo90FYLoBTho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

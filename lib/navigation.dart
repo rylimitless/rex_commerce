@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rex_commerce/add_listing.dart';
 
 class AppNavigationBar extends StatelessWidget {
   const AppNavigationBar({Key? key}) : super(key: key);
@@ -8,6 +9,21 @@ class AppNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var color = Theme.of(context).colorScheme.primary;
     return BottomNavigationBar(
+      currentIndex: 0,
+      elevation: 0.0,
+      onTap: (index) {
+        if (index == 0) {
+          // Get.toNamed('/home');
+        } else if (index == 1) {
+          // Get.toNamed('/chat');
+        } else if (index == 2) {
+          Get.to(() => const ItemListing());
+        } else if (index == 3) {
+          // Get.toNamed('/cart');
+        } else if (index == 4) {
+          // Get.toNamed('/profile');
+        }
+      },
       backgroundColor: Colors.white,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -21,8 +37,8 @@ class AppNavigationBar extends StatelessWidget {
           backgroundColor: color,
         ),
          BottomNavigationBarItem(
-          icon: const Icon(Icons.explore_outlined),
-          label: 'Explore',
+          icon: const Icon(Icons.store_outlined),
+          label: 'Sell',
           backgroundColor: color,
         ),
         

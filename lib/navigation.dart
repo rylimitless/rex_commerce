@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rex_commerce/add_listing.dart';
+import 'package:rex_commerce/chat.dart';
 import 'package:rex_commerce/student_promo.dart';
 
 class AppNavigationBar extends StatelessWidget {
@@ -20,6 +21,7 @@ class AppNavigationBar extends StatelessWidget {
         } else if (index == 1) {
           
           // Get.toNamed('/chat');
+          Navigator.push(context , MaterialPageRoute(builder: (context) => ChatApp()));
 
         } else if (index == 2) {
           Navigator.push(context,
@@ -56,10 +58,9 @@ class AppNavigationBar extends StatelessWidget {
           backgroundColor: color,
         ),
         
-        
         BottomNavigationBarItem(
-          icon: const Icon(Icons.shopping_cart_outlined),
-          label: 'Cart',
+          icon: const Icon(Icons.local_offer_outlined),
+          label: 'Promo',
           backgroundColor: color,
         ),
         BottomNavigationBarItem(

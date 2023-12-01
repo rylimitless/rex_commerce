@@ -5,6 +5,7 @@ import 'package:rex_commerce/home_page/controller/home_controller.dart';
 import 'package:rex_commerce/navigation.dart';
 import 'package:rex_commerce/fire_store.dart';
 import 'package:rex_commerce/app_controller.dart';
+import 'package:rex_commerce/chat.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -252,8 +253,8 @@ class MyHomePage extends StatelessWidget {
                                                       child: const Text(
                                                           'Contact Seller'),
                                                       onPressed: () =>
-                                                          Navigator.pop(
-                                                              context),
+                                                          Navigator.push(
+                                                             context, MaterialPageRoute(builder: (context) => ChatApp()) ),
                                                     ),
                                                   ],
                                                 ),

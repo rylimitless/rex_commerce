@@ -28,10 +28,12 @@ class AppController extends GetxController {
   var itemPrice = "";
   var itemDescription = "";
   var itemImageUrl = "".obs;
+  var promoList = [].obs;
 
   var itemCategory = "";
   var viewList = [].obs;
   var selectedIndex = [-1].obs;
+  var selectedIndexForAdd = [-1].obs;
   var imageURL = "https://imgs.search.brave.com/52yAjB7OLxIEKcXPMeojVM55DJQ4c8-eVv5I8kUDlBc/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvcHJldmll/dy0xeC84Ni82Ny9s/YW5kc2NhcGUtcGhv/dG8taW1hZ2Utb3It/cGljdHVyZS1wbGFj/ZWhvbGRlci1mbGF0/LXZlY3Rvci0yOTAw/ODY2Ny5qcGc";
   final FirebaseStorage _storage = FirebaseStorage.instance;
 
@@ -105,18 +107,16 @@ Future<String> getDownloadURL() async {
       'Category': itemCategory,
       'ImageUrl': itemImageUrl.value,
     });
-    viewList.add({
-      'Name': itemName,
-      'Price': itemPrice,
-      'Description': itemDescription,
-      'Category': itemCategory,
-      'ImageUrl': itemImageUrl.value,
-    });
   }
   
   void filterbycategory(String category) {
     viewList.value = listofitems.where((item) {
-      final nameLower = item['Category'].toLowerCase();
+      var nameLower = "";
+      try{
+        nameLower = item['Category'].toLowerCase();
+      } catch(e){
+        nameLower = "";
+      }
       final searchLower = category.toLowerCase();
       return nameLower.contains(searchLower);
     }).toList();
@@ -127,6 +127,8 @@ Future<String> getDownloadURL() async {
 
   bool checkRecord(){
     if(itemName == "" || itemPrice == "" || itemDescription == "" || itemCategory == ""){
+    print("{itemName: $itemName, itemPrice: $itemPrice, itemDescription: $itemDescription, itemCategory: $itemCategory}");
+      
       return false;
     }
     return true;

@@ -24,9 +24,28 @@ class FirestoreService {
   for (var data in allData) {
       appController.listofitems.add(data);
       appController.viewList.add(data);
+
+
+
+      print(data);
+
+
+
   }
    print("init called ${appController.listofitems.length}");
 
+
+  }
+
+  void addToPromo() async {
+    CollectionReference promo = FirebaseFirestore.instance.collection('StudentPromo');
+     QuerySnapshot querySnapshot = await promo.get();
+  final allData = querySnapshot.docs.map((doc) => doc.data());
+
+    for(var data in allData){
+      appController.promoList.add(data);
+    }
+    
   }
 
 

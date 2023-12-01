@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rex_commerce/app_controller.dart';
+import 'package:rex_commerce/home_page/page/home_page.dart';
 
 class Item {
   final String name;
@@ -124,7 +125,7 @@ class ItemListing extends StatelessWidget {
                   title: "Success",
                   middleText: "Item Added Successfully",
                   onConfirm: () {
-                    Get.back();
+                    Navigator.push(context , MaterialPageRoute(builder: (context) => MyHomePage()));
                   },
                 );
                 // Navigator.pop(context);
@@ -177,20 +178,29 @@ class CustomItem extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              controller.itemCategory = categories[index];
+              if(controller.selectedIndexForAdd[0] == index){
+                controller.selectedIndexForAdd[0] = -1;
+                controller.setItemCategory = categories[index];
+              }else{
+                controller.selectedIndexForAdd[0] = index;
+                controller.setItemCategory = categories[index];
+              }
+              // print('${controller.selectedIndexForAdd[0]}');
+              
               // Navigator.pop(context); // You may not need this line
             },
-            child: Container(
+            child: Obx(() => Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
+                color: (controller.selectedIndexForAdd[0] == index)? Colors.amber: Theme.of(context).colorScheme.primary ,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(
                 categories[index],
                 style: const TextStyle(color: Colors.white),
               ),
-            )
+            ),
+            ),
           );
         },
         itemCount: categories.length,

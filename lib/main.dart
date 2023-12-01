@@ -19,6 +19,7 @@ void main() async{
   runApp(const MyApp());
   var firebase = FirestoreService();
   firebase.init();
+  firebase.addToPromo();
 
 }
 

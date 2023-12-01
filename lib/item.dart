@@ -8,4 +8,4 @@ class Item {
   final String category;
 
   Item(this.name, this.description, this.imageUrl, this.price, this.category);
-}
+}    

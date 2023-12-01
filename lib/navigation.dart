@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rex_commerce/add_listing.dart';
+import 'package:rex_commerce/student_promo.dart';
 
 class AppNavigationBar extends StatelessWidget {
   const AppNavigationBar({Key? key}) : super(key: key);
@@ -27,6 +28,7 @@ class AppNavigationBar extends StatelessWidget {
         } else if (index == 3) {
           
           // Get.toNamed('/cart');
+          Navigator.push(context , MaterialPageRoute(builder: (context) => const StudentPromoPage()));
 
         } else if (index == 4) {
           // Get.toNamed('/profile');

@@ -153,7 +153,6 @@ class MyHomePage extends StatelessWidget {
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {
-                                  print("Helllo efjef");
                                   showModalBottomSheet<void>(
                                     context: context,
                                     builder: (BuildContext context) {

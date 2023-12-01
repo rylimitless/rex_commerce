@@ -14,14 +14,26 @@ class AppNavigationBar extends StatelessWidget {
       onTap: (index) {
         if (index == 0) {
           // Get.toNamed('/home');
+          // Get.to(() => const ItemListing());
+
         } else if (index == 1) {
+          
           // Get.toNamed('/chat');
+
         } else if (index == 2) {
-          Get.to(() => const ItemListing());
+          Navigator.push(context,
+          MaterialPageRoute(builder: (context) => ItemListing())
+          );
         } else if (index == 3) {
+          
           // Get.toNamed('/cart');
+
         } else if (index == 4) {
           // Get.toNamed('/profile');
+          // Navigator.push(context,
+          // MaterialPageRoute(builder: (context) => const ItemListing())
+          // );
+
         }
       },
       backgroundColor: Colors.white,
